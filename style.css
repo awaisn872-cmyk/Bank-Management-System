@@ -1,0 +1,23 @@
+
+:root{--accent:#2b6cb0;--muted:#666}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;margin:0;background:#f5f7fb;color:#222}
+.app{display:flex;min-height:100vh}
+.sidebar{width:240px;background:white;padding:18px;box-shadow:0 2px 8px rgba(12,12,12,.06)}
+.logo{font-weight:700;color:var(--accent);margin-bottom:12px;font-size:20px}
+.nav button{display:block;width:100%;padding:10px;border:0;background:transparent;text-align:left;margin:6px 0;border-radius:8px;cursor:pointer}
+.nav button.active{background:linear-gradient(90deg,#e6f0fb,#fff);box-shadow:inset 0 0 0 1px rgba(43,108,176,.08)}
+.main{flex:1;padding:20px}
+.card{background:white;padding:14px;border-radius:10px;box-shadow:0 2px 6px rgba(12,12,12,.04)}
+h2{margin:0 0 12px}
+form.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+input, select{width:100%;padding:8px 10px;border-radius:8px;border:1px solid #e6ecf2;background:#fbfdff}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #f0f3f7;font-size:14px}
+.btn{padding:8px 10px;border-radius:8px;border:0;cursor:pointer}
+.btn.primary{background:var(--accent);color:white}
+.btn.ghost{background:transparent;border:1px solid #e6ecf2}
+.actions button{margin-right:6px}
+.topbar{display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.muted{color:var(--muted);font-size:13px}
+@media(max-width:800px){.sidebar{display:none}}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced Banking </title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="app">
+<aside class="sidebar card">
+<div class="logo">BMS</div>
+<div class="muted">Advanced Banking Management System</div>
+<nav class="nav" style="margin-top:14px">
+  <button data-view="dashboard" class="active">Dashboard</button>
+  <button data-view="add">Add Account</button>
+  <button data-view="deposit">Deposit</button>
+  <button data-view="withdraw">Withdraw</button>
+  <button data-view="transfer">Transfer</button>
+  <button data-view="list">View Accounts</button>
+  <button data-view="transactions">Transactions</button>
+</nav>
+
+</aside>
+<main class="main">
+<div class="topbar"><h2 id="view-title">Dashboard</h2></div>
+<div id="view-container"></div>
+</main>
+</div>
+
+<!-- Templates -->
+<template id="tpl-dashboard">
+  <div class="card">
+    <h3>Quick Stats</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:12px">
+      <div class="card" style="text-align:center"><div class="muted">Total Accounts</div><div id="stat-total" style="font-size:22px;font-weight:700">0</div></div>
+      <div class="card" style="text-align:center"><div class="muted">Total Balance</div><div id="stat-balance" style="font-size:22px;font-weight:700">0</div></div>
+      <div class="card" style="text-align:center"><div class="muted">Total Transactions</div><div id="stat-trans" style="font-size:22px;font-weight:700">0</div></div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-add">
+  <div class="card">
+    <h3>Add Account</h3>
+    <form id="addForm" class="row">
+      <div><label>Name</label><input name="name" required></div>
+      <div><label>Account No</label><input name="acc" type="number" required></div>
+      <div style="grid-column:1/-1; margin-top:8px">
+        <button class="btn primary" type="submit">Create Account</button>
+      </div>
+    </form>
+  </div>
+</template>
+
+<template id="tpl-deposit">
+  <div class="card">
+    <h3>Deposit Money</h3>
+    <form id="depositForm" class="row">
+      <div><label>Account No</label><input name="acc" type="number" required></div>
+      <div><label>Amount</label><input name="amount" type="number" required></div>
+      <div style="grid-column:1/-1; margin-top:8px"><button class="btn primary" type="submit">Deposit</button></div>
+    </form>
+  </div>
+</template>
+
+<template id="tpl-withdraw">
+  <div class="card">
+    <h3>Withdraw Money</h3>
+    <form id="withdrawForm" class="row">
+      <div><label>Account No</label><input name="acc" type="number" required></div>
+      <div><label>Amount</label><input name="amount" type="number" required></div>
+      <div style="grid-column:1/-1; margin-top:8px"><button class="btn primary" type="submit">Withdraw</button></div>
+    </form>
+  </div>
+</template>
+
+<template id="tpl-transfer">
+  <div class="card">
+    <h3>Fund Transfer</h3>
+    <form id="transferForm" class="row">
+      <div><label>From Account No</label><input name="from" type="number" required></div>
+      <div><label>To Account No</label><input name="to" type="number" required></div>
+      <div><label>Amount</label><input name="amount" type="number" required></div>
+      <div style="grid-column:1/-1; margin-top:8px"><button class="btn primary" type="submit">Transfer</button></div>
+    </form>
+  </div>
+</template>
+
+<template id="tpl-list">
+  <div class="card">
+    <h3>Accounts List</h3>
+    <input id="searchAcc" placeholder="Search by Account No or Name" style="margin-bottom:8px;padding:6px 10px;border-radius:8px;border:1px solid #ccc;width:100%">
+    <table><thead><tr><th>Name</th><th>Account No</th><th>Balance</th></tr></thead><tbody id="accountTable"></tbody></table>
+  </div>
+</template>
+
+<template id="tpl-transactions">
+  <div class="card">
+    <h3>All Transactions</h3>
+    <table><thead><tr><th>Date</th><th>Account</th><th>Type</th><th>Amount</th><th>Balance After</th></tr></thead><tbody id="tranTable"></tbody></table>
+  </div>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
